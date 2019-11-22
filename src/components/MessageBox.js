@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import trim from 'trim';
 
 class MessageBox extends Component {
 
@@ -16,11 +17,15 @@ class MessageBox extends Component {
         });
     }
     onKeyup(e){
-        if(e.keyCode === 13 && (e.target.value.trim) !== ''){
+        if(e.keyCode === 13 && trim(e.target.value) !== ''){
             e.preventDefault();
-            let dbCon = this.props.db.database().ref('/messages');
-            dbCon.push({
-                message: (e.target.value.trim)
+            let dbCon = this.props.db.database().ref('/messages/-LuIglvlFqWl5qQxB4SP');
+            /*dbCon.push({
+                message: trim(e.target.value),
+                message1: trim(e.target.value)
+            });*/
+            dbCon.update({
+                message: trim(e.target.value)
             });
             this.setState({
                 message: ''

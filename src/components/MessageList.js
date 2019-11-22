@@ -15,6 +15,7 @@ class MessageList extends Component {
     }
 
     getData(values){
+        debugger
         let messagesVal = values;
         let messages = _(messagesVal)
             .keys()
@@ -27,6 +28,7 @@ class MessageList extends Component {
         this.setState({
             messages: messages
         });
+        console.log(messages)
     }
 
     render() {

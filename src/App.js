@@ -36,7 +36,7 @@ class App extends Component {
             <div className="columns">
                 <div className="column is-3"></div>
                 <div className="column is-6">
-                    {/*<MessageBox db={firebase} />*/}
+                    <MessageBox db={firebase} />
                 </div>
             </div>
         </div>
