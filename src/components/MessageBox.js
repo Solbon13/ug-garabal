@@ -25,7 +25,7 @@ class MessageBox extends Component {
                 message1: trim(e.target.value)
             });*/
             dbCon.update({
-                message: trim(e.target.value)
+                message: trim(e.target.value) 
             });
             this.setState({
                 message: ''
