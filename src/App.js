@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
-import MessageList from "./components/MessageList";
-import Header from "./components/Header";
 import firebase from 'firebase';
-import MessageBox from "./components/MessageBox";
+import './App.css';
+import {BrowserRouter, Route} from "react-router-dom";
+import Dialogs from "./components/Dialogs/Dialogs";
+import Profile from "./components/Profile/Profile";
+import News from "./components/News/News";
+import Users from "./components/Users/Users";
+import Navbar from "./components/Navbar/Navbar";
+import Header from "./components/Header/Header";
+
+
 
 class App extends Component {
 
@@ -25,22 +32,25 @@ class App extends Component {
 
   render() {
     return (
+        <BrowserRouter>
         <div className="container">
-            <Header title="Simple Firebase App" />
-            <div className="columns">
-                <div className="column is-3"></div>
-                <div className="column is-6">
-                    <MessageList db={firebase} />
+            <div className='app-wrapper'>
+                <Header/>
+                <Navbar/>
+                <div className='app-wrapper-content'>
+                    <Route path = '/dialogs' component={Dialogs}/>
+                    <Route path = '/profile' component={Profile}/>
+                    <Route path = '/news' component={News}/>
+                    <Route path = '/users' component={Users}/>
                 </div>
             </div>
-            <div className="columns">
-                <div className="column is-3"></div>
-                <div className="column is-6">
-                    <MessageBox db={firebase} />
-                </div>
-            </div>
+
+
+
         </div>
-    );
+  </BrowserRouter>
+
+  );
   }
 }
 
